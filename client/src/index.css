@@ -74,3 +74,13 @@
 .app-shell .activity-item small { color: #a09aa2; }
 .app-shell .view-log-button { color: #8c858e; }
 @media (max-width: 700px) { .app-shell .left-rail { border-bottom-color: #ebe7e2; } }
+
+/* Custom CSS to hide the Manus attribution watermark */
+[class*="manus-badge"],
+[id*="manus-watermark"],
+.manus-attribution-badge {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
