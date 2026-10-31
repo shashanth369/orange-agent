@@ -1,5 +1,7 @@
 import { COOKIE_NAME } from "@shared/const";
+import { z } from "zod";
 import { getSessionCookieOptions } from "./_core/cookies";
+import { createBrowserPlan } from "./agentPlanner";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 
@@ -15,6 +17,12 @@ export const appRouter = router({
         success: true,
       } as const;
     }),
+  }),
+
+  agent: router({
+    plan: publicProcedure
+      .input(z.object({ goal: z.string().min(3).max(1000), currentUrl: z.string().max(2000).optional() }))
+      .mutation(({ input }) => createBrowserPlan(input.goal, input.currentUrl)),
   }),
 
   // TODO: add feature routers here, e.g.

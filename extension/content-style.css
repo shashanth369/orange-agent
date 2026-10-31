@@ -1,0 +1,11 @@
+.orange-agent-edge { position: fixed; inset: 0; z-index: 2147483646; pointer-events: none; opacity: 0; transition: opacity .35s ease, box-shadow .35s ease; box-shadow: inset 0 0 0 2px rgba(255,107,44,.34), inset 0 0 22px rgba(255,107,44,.08); }
+.orange-agent-edge.is-active { opacity: 1; }
+.orange-agent-cursor { position: fixed; left: 10vw; top: 12vh; z-index: 2147483647; pointer-events: none; transition: left .68s cubic-bezier(.45,.05,.15,1), top .68s cubic-bezier(.45,.05,.15,1); filter: drop-shadow(0 2px 5px rgba(0,0,0,.38)); }
+.orange-agent-pointer { display: block; width: 28px; height: 34px; overflow: visible; filter: drop-shadow(0 2px 3px rgba(0,0,0,.36)) drop-shadow(0 0 8px rgba(255,107,44,.48)); transform-origin: 3px 3px; transition: transform .16s ease; }
+.orange-agent-pointer path { fill: #ff6b2c; stroke: #fff7f1; stroke-width: 1.7; stroke-linejoin: round; }
+.orange-agent-cursor.is-clicking .orange-agent-pointer { transform: scale(.82); }
+.orange-agent-click { position: absolute; left: 5px; top: 5px; width: 18px; height: 18px; border: 2px solid #ff6b2c; border-radius: 50%; opacity: 0; pointer-events: none; }
+.orange-agent-cursor.is-clicking .orange-agent-click { animation: orange-agent-click .42s ease-out; }
+.orange-agent-label { position: absolute; left: 22px; top: 21px; min-width: max-content; border: 1px solid rgba(255,107,44,.6); border-radius: 4px; padding: 5px 7px; color: #fff7f1; background: rgba(27,22,20,.92); font: 11px/1.1 ui-monospace, SFMono-Regular, Menlo, monospace; box-shadow: 0 5px 16px rgba(0,0,0,.24); }
+@media (prefers-reduced-motion: reduce) { .orange-agent-cursor, .orange-agent-edge { transition-duration: .01ms; } }
+@keyframes orange-agent-click { 0% { opacity: .8; transform: scale(.6); } 100% { opacity: 0; transform: scale(2.25); } }

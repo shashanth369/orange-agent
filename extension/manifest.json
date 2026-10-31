@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Orange Agent Companion",
+  "version": "0.1.0",
+  "description": "Visible browser control for Orange Agent: orange cursor, viewport glow, typing and clicks.",
+  "permissions": ["activeTab", "scripting", "tabs", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "service-worker.js" },
+  "action": { "default_title": "Orange Agent Companion" },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"],
+      "css": ["content-style.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "externally_connectable": {
+    "matches": [
+      "https://*.manus.computer/*",
+      "http://localhost/*",
+      "http://127.0.0.1/*"
+    ]
+  }
+}
