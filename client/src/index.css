@@ -40,3 +40,37 @@
 .landing-composer { min-height: 122px; border: 1px solid #ded9d4; border-radius: 15px; background: rgba(255,255,255,.9); box-shadow: 0 12px 38px rgba(43,34,26,.055), 0 1px 2px rgba(43,34,26,.04); padding: 16px 17px 12px; transition: border-color .25s, box-shadow .25s; }.landing-composer:focus-within { border-color: rgba(255,107,44,.52); box-shadow: 0 0 0 4px rgba(255,107,44,.07), 0 16px 42px rgba(43,34,26,.07); }.landing-composer textarea { width: 100%; min-height: 58px; border: 0; resize: none; outline: 0; color: #28242b; background: transparent; font-size: 14px; line-height: 1.5; }.landing-composer textarea::placeholder { color: #b3adb4; }.composer-bottom { display: flex; align-items: center; justify-content: space-between; }.composer-note { color: #b0aab1; font-size: 10px; }.composer-submit { height: 34px; display: inline-flex; align-items: center; gap: 7px; padding: 0 13px; border-radius: 8px; color: #fff8f1; background: #ff6b2c; font-size: 11px; font-weight: 700; cursor: pointer; box-shadow: 0 5px 12px rgba(255,107,44,.2); transition: background .2s, transform .2s; }.composer-submit:hover { background: #f35d20; transform: translateY(-1px); }.composer-submit:disabled { opacity: .45; cursor: not-allowed; transform: none; }
 .landing-footer { display: flex; align-items: center; justify-content: center; gap: 12px; color: #aaa5aa; font-size: 10px; padding: 20px 20px 24px; }.footer-line { width: 24px; height: 1px; background: #ded9d5; }
 @media (max-width: 700px) { .landing-header { height: 64px; padding: 0 18px; }.landing-bridge { display: none; }.landing-main { padding-top: 42px; }.landing-subtitle { font-size: 12px; }.suggestion-chip { height: 32px; padding: 0 11px; }.landing-composer-wrap { margin-top: 36px; }.composer-hint, .composer-note { display: none; }.composer-bottom { justify-content: flex-end; }.computer-pill span { display: none; }.landing-footer { font-size: 9px; } }
+
+/* Keep execution in the launcher theme */
+.app-shell { background: #fbfaf8; color: #27232a; }
+.app-shell .topbar { background: rgba(255,255,255,.88); border-bottom-color: #ebe7e2; }
+.app-shell .brand-name { color: #28242b; }
+.app-shell .bridge-status { color: #5f7e65; border-color: #dfe9e0; background: #f5faf5; }
+.app-shell .left-rail, .app-shell .right-rail { background: rgba(255,255,255,.62); border-color: #ebe7e2; }
+.app-shell .section-eyebrow { color: #a09aa2; }
+.app-shell .status-badge { background: #fff; border-color: #e4dfda; color: #77717a; }
+.app-shell .goal-block { background: #fff; border-color: #e7e1dc; box-shadow: 0 8px 25px rgba(43,34,26,.04); }
+.app-shell .goal-block label, .app-shell .activity-heading { color: #4f4952; }
+.app-shell .goal-block textarea { background: #fbfaf8; color: #29252b; border-color: #e1dbd5; }
+.app-shell .goal-block textarea:focus { background: #fff; }
+.app-shell .goal-footnote, .app-shell .left-rail-footer p, .app-shell .stage-header-meta { color: #99929b; }
+.app-shell .secondary-button, .app-shell .takeover-button { background: #fff; color: #605963; border-color: #e0d9d3; }
+.app-shell .secondary-button:hover, .app-shell .takeover-button:hover, .app-shell .takeover-button.selected { background: #fff7f2; color: #c65325; border-color: rgba(255,107,44,.4); }
+.app-shell .rail-rule { background: #ebe6e1; }
+.app-shell .stage-header h1 { color: #262229; }
+.app-shell .stage-header-meta { background: #fff; border-color: #e5dfda; }
+.app-shell .right-rail .mission-code { color: #78917d; }
+.app-shell .mission-summary { background: #fff; border-color: #e7e1dc; box-shadow: 0 8px 25px rgba(43,34,26,.035); }
+.app-shell .summary-topline, .app-shell .mission-summary p { color: #9a949b; }
+.app-shell .mission-summary h2 { color: #29242c; }
+.app-shell .progress-track { background: #eee8e3; }
+.app-shell .mission-step:not(:last-child):after { background: #e4ded9; }
+.app-shell .step-marker { background: #fff; border-color: #ddd6d1; color: #a09aa2; }
+.app-shell .step-copy b { color: #5c5660; }
+.app-shell .step-copy small, .app-shell .step-id, .app-shell .step-id i { color: #a29ba3; }
+.app-shell .activity-item { color: #9a949b; }
+.app-shell .activity-line { background: #e1dbd6; }
+.app-shell .activity-item b { color: #5e5861; }
+.app-shell .activity-item small { color: #a09aa2; }
+.app-shell .view-log-button { color: #8c858e; }
+@media (max-width: 700px) { .app-shell .left-rail { border-bottom-color: #ebe7e2; } }
