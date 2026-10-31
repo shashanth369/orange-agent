@@ -251,6 +251,53 @@ export default function Home() {
 
   const activeTabGlow = isActive || runState === "complete";
 
+  if (runState === "idle" && currentStep === 0 && !isPlanning) {
+    const suggestions = [
+      { label: "Research a topic", icon: Search, prompt: "Research the latest information about " },
+      { label: "Compare products", icon: ArrowUpRight, prompt: "Compare the best options for " },
+      { label: "Summarize current page", icon: Globe2, prompt: "Summarize the current page and extract the key points" },
+      { label: "Fill out a form", icon: Keyboard, prompt: "Fill out the form using " },
+      { label: "Gather sources", icon: ShieldCheck, prompt: "Gather reliable sources about " },
+      { label: "Review a website", icon: MousePointer2, prompt: "Review this website and tell me " },
+    ];
+
+    return (
+      <div className="landing-shell">
+        <header className="landing-header">
+          <div className="brand-lockup" aria-label="Orange Agent">
+            <span className="brand-mark" aria-hidden="true"><i /><i /><i /><i /></span>
+            <span className="brand-name">ORANGE <b>/</b> AGENT</span>
+          </div>
+          <span className="landing-bridge"><span className="bridge-pulse" /> Chrome companion ready</span>
+        </header>
+
+        <main className="landing-main">
+          <div className="agent-orb" aria-hidden="true"><span /><span /><span /><span /></div>
+          <p className="landing-overline">YOUR BROWSER, WITH AN AGENT</p>
+          <h1>What task can I run for you?</h1>
+          <p className="landing-subtitle">Describe the outcome. Orange Agent will plan the steps, open the right pages, and show you everything it does.</p>
+
+          <div className="suggestion-grid">
+            {suggestions.map((suggestion) => {
+              const Icon = suggestion.icon;
+              return <button key={suggestion.label} className="suggestion-chip" onClick={() => setGoal(suggestion.prompt)}><Icon size={14} />{suggestion.label}</button>;
+            })}
+          </div>
+
+          <div className="landing-composer-wrap">
+            <div className="computer-pill"><ShieldCheck size={14} /> Using a temporary computer <span>Private to this task</span></div>
+            <div className="composer-meta"><span className="agent-mode"><span className="mini-orb" /> Orange Agent <i>Adaptive</i></span><span className="composer-hint">Plan first · act visibly</span></div>
+            <div className="landing-composer">
+              <textarea aria-label="Task prompt" value={goal} onChange={(event) => setGoal(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); void runMission(); } }} placeholder="Ask Orange Agent to do something in your browser…" rows={2} />
+              <div className="composer-bottom"><span className="composer-note">Shift + Enter for a new line</span><button className="composer-submit" onClick={() => void runMission()} disabled={!goal.trim()}><Play size={15} fill="currentColor" /> Run task</button></div>
+            </div>
+          </div>
+        </main>
+        <footer className="landing-footer"><span>Visible by default</span><span className="footer-line" /><span>Orange cursor · Live steps · Manual takeover</span></footer>
+      </div>
+    );
+  }
+
   return (
     <div className="app-shell">
       <header className="topbar">
